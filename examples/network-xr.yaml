@@ -4,8 +4,8 @@ metadata:
   annotations:
     render.crossplane.io/composition-path: apis/pat/composition.yaml
     render.crossplane.io/function-path: examples/functions.yaml
-  name: ref-azure-network
+  name: ref-azure-network-bratislava
 spec:
   parameters:
-    id: ref-azure-network-from-xr
-    region: westus
+    id: ref-azure-network-bratislava
+    region: westeurope

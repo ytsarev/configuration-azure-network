@@ -39,6 +39,14 @@ spec:
               - type: FromCompositeFieldPath
                 fromFieldPath: spec.parameters.region
                 toFieldPath: spec.forProvider.location
+          - name: predictable-identifier
+            patches:
+              - type: FromCompositeFieldPath
+                fromFieldPath: spec.parameters.id
+                toFieldPath: metadata.name
+              - type: FromCompositeFieldPath
+                fromFieldPath: spec.parameters.id
+                toFieldPath: metadata.annotations[crossplane.io/external-name]
 
         resources:
           - name: resourceGroup
@@ -54,6 +62,8 @@ spec:
                 patchSetName: network-id
               - type: PatchSet
                 patchSetName: region
+              - type: PatchSet
+                patchSetName: predictable-identifier
 
           - name: virtualNetwork
             base:
@@ -74,14 +84,8 @@ spec:
                 patchSetName: network-id
               - type: PatchSet
                 patchSetName: region
-              - type: FromCompositeFieldPath
-                fromFieldPath: spec.parameters.id
-                toFieldPath: metadata.name
-                transforms:
-                  - type: string
-                    string:
-                      fmt: '%s-vnet'
-                      type: Format
+              - type: PatchSet
+                patchSetName: predictable-identifier
 
           - name: subnet
             base:
@@ -104,11 +108,5 @@ spec:
                 patchSetName: deletionPolicy
               - type: PatchSet
                 patchSetName: network-id
-              - type: FromCompositeFieldPath
-                fromFieldPath: spec.parameters.id
-                toFieldPath: metadata.name
-                transforms:
-                  - type: string
-                    string:
-                      fmt: '%s-sn'
-                      type: Format
+              - type: PatchSet
+                patchSetName: predictable-identifier
