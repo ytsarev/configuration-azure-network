@@ -2,7 +2,7 @@ import file
 import yaml
 
 getByCompositeResourceName = lambda name: str -> any {
-   render = yaml.decode_all(file.read(".cache/render/da723.yaml"))
+   render = yaml.decode_all(file.read(file.read_env("RENDERED_COMPOSITION")))
    resource = [ el for el in render if el.metadata.annotations?["crossplane.io/composition-resource-name"] == name][0]
    resource
 }
