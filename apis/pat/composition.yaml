@@ -99,6 +99,7 @@ spec:
                     matchControllerRef: true
                   serviceEndpoints:
                     - Microsoft.Sql
+                    # - Microsoft.Storage
                   virtualNetworkNameSelector:
                     matchControllerRef: true
             patches:
