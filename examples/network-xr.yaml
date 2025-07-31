@@ -9,3 +9,5 @@ spec:
   parameters:
     id: ref-azure-network-kubecon-india
     region: westeurope
+    deletionPolicy: Orphan
+    providerConfigName: default
