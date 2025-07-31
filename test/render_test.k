@@ -9,7 +9,7 @@ getByCompositeResourceName = lambda name: str -> any {
 
 test_vnet_name = lambda {
    virtualNetwork = getByCompositeResourceName("virtualNetwork")
-   assert virtualNetwork.metadata.name == "ref-azure-network-bratislava"
+   assert virtualNetwork.metadata.name == "ref-azure-network-kubecon-india"
 }
 
 test_vnet_address = lambda {
