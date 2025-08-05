@@ -38,7 +38,7 @@ spec:
             patches:
               - type: FromCompositeFieldPath
                 fromFieldPath: spec.parameters.region
-                toFieldPath: spec.forProvider.location
+                toFieldPath: spec.forProvider.locations
           - name: predictable-identifier
             patches:
               - type: FromCompositeFieldPath
